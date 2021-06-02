@@ -5,6 +5,7 @@ Requirements:
 -Java version 8
 -Maven 3.6.3
 -PostgreSQL v12
+-Git v2 or above
 
 2) Database deployment:
 
@@ -20,8 +21,9 @@ with required information:
 3) Application deployment:
 
 From CMD:
-3.1)Run mvn clean install in project root
-3.2)Run mvn spring-boot:run in project root
+3.1)Clone project from repo
+3.2)Run mvn clean install in project root
+3.3)Run mvn spring-boot:run in project root
 
 Application runs on localhost:8080 by default. Swagger UI URL: http://localhost:8080/swagger-ui/#/
 
