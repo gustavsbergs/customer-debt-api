@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="customerRestService" class="com.intrum.api.rest.controllers.CustomerRestServiceImpl">
+        <property name="customerService" ref="service_customerService"/>
+    </bean>
+    <bean id="debtRestService" class="com.intrum.api.rest.controllers.DebtRestServiceImpl">
+        <property name="debtService" ref="service_debtService"/>
+    </bean>
+</beans>

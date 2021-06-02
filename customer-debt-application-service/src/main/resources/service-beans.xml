@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="classpath:domain-beans.xml"/>
+    <!-- bean definitions here -->
+    <!-- service beans -->
+    <bean id="service_customerService" class="com.intrum.customer.service.CustomerServiceImpl">
+        <property name="customerDao" ref="domain_customerDao"/>
+        <property name="debtDao" ref="domain_debtDao"/>
+        <property name="credentialDao" ref="domain_credentialDao"/>
+        <property name="credentialUtil" ref="service_credentialUtil"/>
+        <property name="customerMappingProvider" ref="service_customerMappingProvider"/>
+        <property name="queryUtil" ref="service_queryUtil"/>
+        <property name="currencyUtil" ref="service_currencyUtil"/>
+    </bean>
+
+    <bean id="service_debtService" class="com.intrum.debt.service.DebtServiceImpl">
+        <property name="customerDao" ref="domain_customerDao"/>
+        <property name="debtDao" ref="domain_debtDao"/>
+        <property name="debtMappingProvider" ref="service_debtMappingProvider"/>
+        <property name="queryUtil" ref="service_queryUtil"/>
+        <property name="currencyUtil" ref="service_currencyUtil"/>
+    </bean>
+
+    <!-- utility beans -->
+    <bean id="service_credentialUtil" class="com.intrum.util.CredentialUtil"/>
+    <bean id="service_queryUtil" class="com.intrum.util.QueryUtil"/>
+    <bean id="service_currencyUtil" class="com.intrum.util.CurrencyUtil"/>
+    <bean id="service_customerMappingProvider" class="com.intrum.customer.mapper.impl.CustomerMappingProviderImpl">
+        <property name="debtMappingProvider" ref="service_debtMappingProvider"/>
+    </bean>
+
+    <bean id="service_debtMappingProvider" class="com.intrum.debt.mapper.impl.DebtMappingProviderImpl">
+        <property name="currencyUtil" ref="service_currencyUtil"/>
+    </bean>
+</beans>

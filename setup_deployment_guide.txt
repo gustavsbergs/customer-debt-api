@@ -1,0 +1,27 @@
+1) Environment preparation:
+
+Requirements:
+
+-Java version 8
+-Maven 3.6.3
+-PostgreSQL v12
+
+2) Database deployment:
+
+2.1)ProsgreSQL v12 database server must be running on local environment.
+2.2)Create a new database.
+2.3)Run SQL script provided in "create_schema.txt"
+2.4)Update application.properties under customer-debt-application-domain/src/main/resources. Following properties should be updated
+with required information:
+    spring.datasource.url=jdbc:postgresql://{host}/{dbName}: host and name of the database in local environment
+    spring.datasource.username={dbUserName}: username for db user(postgres by default)
+    spring.datasource.password={dbUserPassword}: password for db user
+
+3) Application deployment:
+
+From CMD:
+3.1)Run mvn clean install in project root
+3.2)Run mvn spring-boot:run in project root
+
+Application runs on localhost:8080 by default. Swagger UI URL: http://localhost:8080/swagger-ui/#/
+
